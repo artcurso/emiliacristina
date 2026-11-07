@@ -108,6 +108,30 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
+        /* Novo estilo para o Banner de Destaque */
+        .featured-banner {
+            border: 2px solid #8257e5; /* Borda da cor de destaque */
+            box-shadow: 0 0 20px rgba(130, 87, 229, 0.5); /* Brilho suave */
+        }
+        
+        .featured-banner .course-content {
+            padding: 16px;
+        }
+
+        .featured-banner .course-image {
+            width: 100px; /* Um pouco maior para destaque */
+            height: 100px;
+        }
+
+        .featured-banner .course-action {
+            background-color: #8257e5; /* Cor de destaque no fundo */
+            color: #f8f8f2; /* Cor do texto clara */
+        }
+
+        .featured-banner:hover .course-action {
+            background-color: #996bff; /* Tom mais claro no hover */
+        }
+
         .course-content {
             display: flex;
             padding: 16px;
@@ -224,9 +248,23 @@
             <p class="profile-bio">Descubra sua paixão pela pintura.<br>Passo a passo em vídeos.</p>
         </header>
 
-        <!-- Lista de Cursos -->
+        <!-- Lista de Cursos com o Novo Banner no Topo -->
         <main class="links-list">
             
+            <!-- Banner de Destaque: Lançamento em Breve -->
+            <div class="course-card featured-banner">
+                <div class="course-content">
+                    <img src="img/banner_bule.png" alt="Bule de Porcelana Azul Floral com Base de Vidro" class="course-image" loading="lazy">
+                    <div class="course-info">
+                        <span class="course-title">LANÇAMENTO EM BREVE</span>
+                        <span class="course-description">CURSO EXCLUSIVO: Aprenda transparências e brilhos do vidro na pintura em tecido com este lindo Bule de Porcelana Azul Floral.</span>
+                    </div>
+                </div>
+                <div class="course-action">
+                    <i class="fa-solid fa-hourglass-start"></i> Aguardem...
+                </div>
+            </div>
+
             <!-- Curso 1 -->
             <a href="https://pay.kiwify.com.br/ZE7aLGA" target="_blank" rel="noopener noreferrer" class="course-card">
                 <div class="course-content">
@@ -297,12 +335,15 @@
             });
 
             cards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = "scale(0.97)";
-                    setTimeout(() => {
-                        this.style.transform = "translateY(-4px)";
-                    }, 150);
-                });
+                // Adiciona clique apenas para os cartões com link
+                if (card.tagName.toLowerCase() === 'a') {
+                    card.addEventListener('click', function() {
+                        this.style.transform = "scale(0.97)";
+                        setTimeout(() => {
+                            this.style.transform = "translateY(-4px)";
+                        }, 150);
+                    });
+                }
             });
         });
     </script>
